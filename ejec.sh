@@ -1,3 +1,4 @@
-python practica2.py
 python unitarias.py
+python practica2.py
+
 

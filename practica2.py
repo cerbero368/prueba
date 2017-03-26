@@ -53,7 +53,7 @@ def login():
             session['cuenta_actual'] = codigo
             return redirect(url_for('usuario'))
         else:
-            mal = "No Tiene un Usuario"
+            mal = "No TieNe UsUArio"
 
     return render_template('login.html', mal=mal)
 

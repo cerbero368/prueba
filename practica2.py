@@ -40,7 +40,7 @@ def login():
         user = request.form['usu']
         contra = request.form['pass']
         codigo = request.form['cod']
-        print 'Funciono Cambio'
+        print("ERROR")
         g.db = connect_db()
         querry = "select usuario,contrasena,codigo from persona where usuario='" + user + "' and contrasena='" + contra + "' and codigo=" + codigo
         cur = g.db.execute(querry)

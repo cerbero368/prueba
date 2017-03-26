@@ -40,6 +40,7 @@ def login():
         user = request.form['usu']
         contra = request.form['pass']
         codigo = request.form['cod']
+        print("ERROR")
         g.db = connect_db()
         querry = "select usuario,contrasena,codigo from persona where usuario='" + user + "' and contrasena='" + contra + "' and codigo=" + codigo
         cur = g.db.execute(querry)
@@ -52,7 +53,7 @@ def login():
             session['cuenta_actual'] = codigo
             return redirect(url_for('usuario'))
         else:
-            mal = "No Tiene un Usuario"
+            mal = "No TieNe UsUArio"
 
     return render_template('login.html', mal=mal)
 

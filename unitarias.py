@@ -37,15 +37,15 @@ class TestPractica2(unittest.TestCase):
         print("######## VERIFICAR SALDO ########")
         self.assertEqual(verificar_saldo(1, 100), True)
 
-    #def test_registro(self):
-    #    print("##### TEST REGISTRO####")
-    #    g = sql.connect('p2.db')
-    #    query = "Insert into persona(contrasena, nombre, saldo, usuario,correo) values " \
-    #            +"(1234,'eva',100,'eva','eva@gmail.com')"
-    #    g.execute(query)
-    #    g.commit()
-    #    g.close()
-    #    self.assertEqual(verificar_registro(1234, "eva", "eva", "eva@gmail.com"), True)
+    def test_registro(self):
+        print("##### TEST REGISTRO####")
+        g = sql.connect('p2.db')
+        query = "Insert into persona(contrasena, nombre, saldo, usuario,correo) values " \
+                +"(1234,'jack',100,'jack','jack@gmail.com')"
+        g.execute(query)
+        g.commit()
+        g.close()
+        self.assertEqual(verificar_registro(1234, "jack", "jack", "jack@gmail.com"), True)
 
     def test_codigo(self):
         print("######## CODIGO ########")

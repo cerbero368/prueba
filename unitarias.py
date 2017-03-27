@@ -7,7 +7,7 @@ class TestPractica2(unittest.TestCase):
 
     def test_verficiar_login(self):
         log = [(u'willy', u'1234', 26)]
-        self.assertEqual(practica2.verificar_login('willy', '1234', log), True)
+        self.assertEqual(practica2.verificar_login('willy', '1234', 26, log), True)
 
     def test_prueba(self):
        self.assertEqual(saldo_cuenta(1), 200)

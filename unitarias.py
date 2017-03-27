@@ -7,11 +7,11 @@ class TestPractica2(unittest.TestCase):
 
     def test_verficiar_login(self):
         print("########VERIFICAR LOGIN########")
-        self.assertEqual(verificar_login('rgerson', '1234', 1), True)
+        self.assertEqual(verificar_login('rgerson', '1234', 1000), True)
 
     def test_transferencias(self):
         print("########TRANSFERENCIAS########")
-        self.assertEqual(test_transferencias(1, 10, 19), True)
+        self.assertEqual(test_transferencias(1, 10, 19), False)
 
     def test_debito(self):
         print("######## DEBITO ########")
@@ -19,7 +19,7 @@ class TestPractica2(unittest.TestCase):
 
     def test_credito(self):
         print("######## CREDITO ########")
-        self.assertEqual(test_credito(1, 5, 19), True)
+        self.assertEqual(test_credito(1, 5, 19), False)
 
     def test_prueba(self):
         print("######## TEST PRUEBA ########")

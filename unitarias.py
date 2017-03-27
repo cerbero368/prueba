@@ -19,7 +19,7 @@ class TestPractica2(unittest.TestCase):
 
     def test_credito(self):
         print("######## CREDITO ########")
-        self.assertEqual(test_credito(1, 5, 19), False)
+        self.assertEqual(test_credito(1, 5, 19), True)
 
     def test_prueba(self):
         print("######## TEST PRUEBA ########")

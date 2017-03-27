@@ -142,6 +142,10 @@ def usuario():
             if int(saldo) > int(monto):
                 descrip = "Pago de "+log_combo+" con un saldo sobrante de: " + str(int(saldo)-int(monto))
                 modificar_actual_credito(session['cuenta_actual'], monto,saldo, tipo_serv(log_combo), descrip)
+                print("Realizara Pago")
+                saldo1 = saldo_cuenta(cuenta_serv(log_combo))
+                modificar_pago(cuenta_serv(log_combo),monto,saldo1)
+                print("Realizo Pago")
             else:
                 print 'No tiene suficiente money'
                 flash("No tiene suficiente dinero", 'error')
@@ -215,6 +219,13 @@ def usuario():
                 modificar_actual_credito(session['cuenta_actual'], monto, saldo2, tipo_serv("Credito"), descrip)
                 flash("Credito realizado con exito")
     return render_template('acciones.html')
+
+def modificar_pago(codigo, monto,saldo):
+    g.db = connect_db()
+    query = "UPDATE persona SET saldo = " + str(int(saldo) + int(monto)) + " WHERE codigo = " + str(codigo)
+    g.db.execute(query)
+    g.db.commit()
+    g.db.close()
 
 
 def verificar_monto(saldo,monto):
@@ -293,6 +304,17 @@ def verificar_cuenta(cuenta):
         print log[0][0]
         return False
 
+def cuenta_serv(tipo):
+    if tipo == 'luz':
+        return 22
+    if tipo== 'agua':
+        return 23
+    if tipo == 'telefono':
+        return 24
+    if tipo == 'gas':
+        return 25
+
+
 def tipo_serv(tipo):
     if tipo == 'luz':
         return 2
@@ -323,8 +345,8 @@ def tipo_serv(tipo):
 
 
 def saldo_cuenta(cuenta):
-    g.db = sql.connect('p2.db')
-    query = "select saldo from persona where codigo='"+cuenta+"'"
+    g.db = connect_db()
+    query = "select saldo from persona where codigo='"+str(cuenta)+"'"
     var = g.db.execute(query)
     log = var.fetchall()
     g.db.close()

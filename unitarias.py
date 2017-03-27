@@ -28,7 +28,7 @@ class TestPractica2(unittest.TestCase):
     #    self.assertEqual(retorno_codigo("wmaradiaga", 19), True)
 
     def test_trans(self):
-        self.assertEqual(trans_datos(1, 19, 90.0, 110.0), True)
+        self.assertEqual(trans_datos(1, 19, 200.0, 600.0), True)
 
 
 def trans_datos(cuenta, cuenta_destino, p_saldo, p_saldo_destino):

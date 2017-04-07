@@ -7,7 +7,7 @@ class TestPractica2(unittest.TestCase):
 
     def test_verficiar_login(self):
         print("########VERIFICAR LOGIN########")
-        self.assertEqual(verificar_login('rgerson', '1234', 1), False)
+        self.assertEqual(verificar_login('rgerson', '1234', 1), True)
 
     def test_transferencias(self):
         print("########TRANSFERENCIAS########")
